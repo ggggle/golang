@@ -15,6 +15,7 @@ RUN set -eux; \
 		musl-dev \
 		openssl \
 		go \
+		git \
 	; \
 	export \
 # set GOROOT_BOOTSTRAP such that we can actually build Go
@@ -54,3 +55,4 @@ RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 WORKDIR $GOPATH
 
 COPY go-wrapper /usr/local/bin/
+RUN go get "github.com/dutchcoders/goftp"
